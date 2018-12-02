@@ -1,0 +1,21 @@
+OUR PRETEND COMPANY
+AngularJS Calculator APP Walkthrough
+
+1. To start building the calculator app in AngularJS, first step is to download the latest Angular.js script file from the official website that contains the AngularJS framework script.
+2. Second, is to move that Angular.js file to the directory in which app is being built, in this walkthrough, Visual Code has been used for building the application.
+3. Once, we have the angular.js file in the directory file list, we can construct the basic structure with HTML such as with index.html file.
+4. We can link the angular.js script file in the head section of the index.html
+5. Next, can create the app.js file which shall contain the module that holds the controller which will be created to handle the business logic later. We can then use angular keyword provided by the AngularJS framework to create the module and name it calculatorApp which can then be linked with the ng-app directive in the index.html that enables AngularJS framework and its directives to be used in the application.
+6. Later we can create the buttons and text boxes for the operations and input respectively.
+7. Next, we can use the directive ng-controller to introduce the html with the controller in the app.js, where the controller and its associated function can be created. The function ControllerCtrl then shall hold all the logic to perform calculations and set the scope properties to be used in the view as well. 
+8. Note that the controller as syntax doesn’t need injection of $scope variable in the function.
+9. Next, ng-model directive is used to hold the user input in the variable input1 and input2 with ctrl as prefix to differentiate between the variables in case other controllers are added in the future iterations for advanced functionalities, this will increase the maintainability of the code and modularize it better.
+10. Now, we can bind the selected user mathematical operation to model to update the operation to be performed by the calculator by using the ng-bind directive in span tags.
+11. The button click then, can be bound to the ng-click event that binds the button event to a function corresponding to that operation event such as plusButtonClicked() method for a + button click. Then, the scope property selectedOperation variable can be assigned the corresponding value in the function that we define, this is due to the ng-bind directive that binds the view with the model variable in bidirectional way. 
+12. Now, another scope property resultValue can be declared in the function that takes care of the result of the operation to be performed.
+13. Next, the ng-click event is then registered for that = button click in the view which calls the scope property function that takes the input values and updates the resultValue variable, which then automatically updates in the view since its bound using the ng-model directive with the view. 
+14. The method computeResult performs the actual calculations and converts input string to float
+15. Ultimately, we check whether the selectedOperation is a specific operation, we perform the corresponding mathematical logic.
+16. We can further add validation by usage of ng-pattern directive for AngularJS and type in the regex that accepts only numbers with one decimal and no other special characters or letters.
+17. A validation error can also be viewed by us on the screen next to the text box to inform the user of the errors by using the pattern value that ng-pattern stores and using the ng-show directive we can throw the validation error in case the user inputs anything undesired.
+18. Finally, we can add some style in the style.css stylesheet which can be linked in the html in the head.

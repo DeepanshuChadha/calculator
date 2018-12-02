@@ -1,0 +1,33 @@
+<html ng-app="calculatorApp">
+
+<head>
+    <title>Our Pretend Company</title>
+    <script src='angular.js'></script>
+    <script src='app.js'></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <h1>Calculator App</h1>
+    <form name="calculator">
+        <div ng-controller="CalculatorCtrl as ctrl">
+            <input type="text" ng-model="ctrl.input1" name="inputBox1" required ng-pattern="/^[0-9]+[.]?[0-9]*$/" placeholder="Enter number 1"></input>
+            <span ng-show="calculator.inputBox1.$error.pattern">Please enter a valid real number!</span>
+            <span ng-bind="ctrl.selectedOperation"></span>
+            <input type="text" ng-model="ctrl.input2" name="inputBox2" required ng-pattern="/^[0-9]+[.]?[0-9]*$/" placeholder="Enter number 2"></input>
+            <span ng-show="calculator.inputBox2.$error.pattern">Please enter a valid real number!</span>
+            <button ng-click="ctrl.computeResult()">=</button>
+            <span ng-bind="ctrl.resultValue"></span>
+            <p>
+                Kindly Choose the operation:
+                <button ng-click="ctrl.buttonClicked('+')">+</button>
+                <button ng-click="ctrl.buttonClicked('-')">-</button>
+                <button ng-click="ctrl.buttonClicked('*')">*</button>
+                <button ng-click="ctrl.buttonClicked('/')">/</button>
+                <button ng-click="ctrl.buttonClicked('^')">x&sup2</button>
+            </p>
+        </div>
+    </form>
+</body>
+
+</html>
